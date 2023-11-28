@@ -1,0 +1,150 @@
+//Se está creando el código
+
+#include <iostream>
+#include <cstdlib>
+#include <conio.h>
+using namespace std;
+
+void Facil(char gatoo[3][3], char Tiradaa){
+}
+
+void Medio(char gatoo[3][3], char Tiradaa){
+}
+
+void Dificil(char gatoo[3][3], char Tiradaa){
+}	
+	//int ValiDX, int ValiDO
+int Validacion(char gatoo[3][3], char Tiradaa, int ValiX, int ValiO){
+	for (int i=0; i<=2; i++){
+		for (int yi=0; yi<=2; yi++) {
+			if (gatoo[i][yi] == 'X') {
+			ValiX = ValiX + 1;
+			}
+	
+			if (ValiX == 3){
+			cout << "Tú ganas" << endl;
+			Tiradaa = 0;
+			}
+			else {
+				if (ValiO == 3){
+				cout << "Tú pierdes" << endl;
+				Tiradaa = 0;				
+				}
+			}
+			
+		}
+		ValiX = 0;
+		ValiO = 0;
+		}	
+		// Ahora se invierte la validación para revisar verticales
+		
+		for (int yi=0; yi<=2; yi++){
+		for (int i=0; i<=2; i++) {
+			if (gatoo[i][yi] == 'X') {
+			ValiX = ValiX + 1;
+			}
+	
+			if (ValiX == 3){
+			cout << "Tú ganas" << endl;
+			Tiradaa = 0;
+			}
+			else {
+				if (ValiO == 3){
+				cout << "Tú pierdes" << endl;
+				Tiradaa = 0;				
+				}
+			}
+			
+		}
+		ValiX = 0;
+		ValiO = 0;
+		}
+		return Tiradaa=0;
+		
+}
+
+int ImprimirMatriz(char gatoo[3][3]){
+	for (int i=0; i<=2; i++){
+		for (int yi=0; yi<=2; yi++){
+			cout << gatoo[i][yi] << '\t';
+		}
+		cout << endl;
+	}
+}
+
+void Turno(char gatoo[3][3], char Tiradaa){
+	switch (Tiradaa){
+		case '1':
+			gatoo[0][0] = 'X';
+			break;
+		case '2':
+			gatoo[0][1] = 'X';
+			break;
+		case '3':
+			gatoo[0][2] = 'X';
+			break;
+		case '4':
+			gatoo[1][0] = 'X';
+			break;
+		case '5':
+			gatoo[1][1] = 'X';
+			break;
+		case '6':
+			gatoo[1][2] = 'X';
+			break;
+		case '7':
+			gatoo[2][0] = 'X';
+			break;
+		case '8':
+			gatoo[2][1] = 'X';
+			break;
+		case '9':
+			gatoo[2][2] = 'X';
+			break;
+	}
+}
+
+void loginf(string Nomb, int G, int P, int T){
+	cout << "Introduce nombre del jugador: "<<endl;
+//	string.getline(Nomb);
+	
+	
+}
+/*
+struct login(){
+	string Nombre;
+	int Ganadas;
+	int Perdidas;
+	int Tablas;
+*/	
+	
+
+
+void inicializar(char gatoo[3][3]){
+	int casillas=1;
+	for (int i=0; i<=2; i++){
+		for (int yi=0; yi<=2; yi++) {
+			gatoo[i][yi] = casillas;
+			casillas = casillas++;
+		}
+	}
+}
+
+int main(){
+	char gato [3][3];
+	inicializar(gato);
+	char Tirada;
+	int ValX, ValO;
+	do {
+		cout << "Usted tira con X" << endl << "Introduzca el número de casilla para tirar"<< endl;
+		ImprimirMatriz(gato);
+		Tirada = getch();
+		Turno (gato, Tirada);
+		system("cls");
+		Validacion(gato, Tirada, ValX, ValO);
+	}
+	while (Tirada>0);
+	cout<< "Fin del juego" << endl;
+	
+		
+}
